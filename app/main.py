@@ -24,11 +24,11 @@ def home():
 # async def classify(request: Request):
 #     payload = await request.json()
 async def classify(
-    payload: dict = Body(..., example={"text": "win a FREE Prize now, click!"})
+    payload: dict = Body(..., examples={"text": "win a FREE Prize now, click!"})
 ):
     text = payload["text"]
     label, score = check_spam(text)
-    return {
+    return { 
         "label": label, "score": score
     }
 # 실행은 운영 환경의 책임으로 남기기 위해 만들지 X
